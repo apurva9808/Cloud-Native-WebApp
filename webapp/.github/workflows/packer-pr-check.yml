@@ -1,0 +1,58 @@
+name: Packer PR Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  packer-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Packer
+        uses: hashicorp/setup-packer@v2
+        with:
+          packer_version: latest
+
+      - name: Create Dummy JAR File
+        run: |
+          mkdir -p target
+          cd target
+          echo "This is a dummy JAR file." > restapi-0.0.1-SNAPSHOT.jar
+
+      - name: Run Packer init
+        run: packer init packer/packer-template.pkr.hcl
+
+      - name: Run Packer fmt
+        id: fmt
+        run: |
+          packer fmt -check -recursive packer/
+          # If fmt changes the template, it exits with a non-zero code
+          if [ $? -ne 0 ]; then
+            echo "Packer fmt failed. Please fix the formatting issues."
+            exit 1
+          fi
+
+      - name: Run Packer validate
+        run: |
+          cd packer
+          packer validate -var aws_region=${{ secrets.AWS_REGION }} \
+                          -var subnet_id=${{ secrets.SUBNET_ID }} \
+                          -var vpc_id=${{ secrets.VPC_ID }} \
+                          -var ami_users=${{ secrets.AMI_USERS }} \
+                          -var db_name=csye6225 \
+                          -var sns_topic_arn=${{ secrets.SNS_TOPIC_ARN }} \
+                          packer-template.pkr.hcl
+          # If validate fails, it exits with a non-zero code
+          if [ $? -ne 0 ]; then
+            echo "Packer validate failed. Please fix the validation errors."
+            exit 1
+          fi
+
+      - name: Clean Up Dummy JAR File
+        run: |
+          rm -f target/restapi-0.0.1-SNAPSHOT.jar

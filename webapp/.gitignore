@@ -1,0 +1,174 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+spring.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Hibernate / JPA generated files
+*.hbm.xml
+
+# Spring Boot specific
+*.db
+*.h2.db
+*.mv.db
+
+# IntelliJ IDEA files
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# VS Code files
+.vscode/
+
+# Eclipse/NetBeans project files
+.project
+.classpath
+.settings/
+.nb-configuration/
+
+# Maven specific files
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Gradle specific files
+.gradle/
+build/
+
+# Logs and database
+logs/
+*.log
+*.sql
+*.sqlite
+
+# PostgreSQL specific
+pgdata/
+postgresql/
+
+# Test output
+test-output/
+
+# User-specific files
+.DS_Store
+Thumbs.db
+
+# OS-specific files
+*.swp
+
+# Compiled class file
+*.class
+
+# Log files
+*.log
+log/
+logs/
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+replay_pid*
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# Spring Boot
+spring-boot-starter/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+# Node (in case of frontend work)
+node_modules/
+npm-debug.log
+
+# JUnit
+junit*.properties
+
+# Spring Boot DevTools
+.restart
+
+HELP.md

@@ -1,0 +1,17 @@
+[Unit]
+Description=CSYE6225 Spring Boot Application
+After=network.target
+
+[Service]
+User=csye6225
+Group=csye6225
+Type=simple
+EnvironmentFile=/etc/csye6225/application-env
+ExecStart=/usr/bin/java -jar /opt/csye6225/app/springboot_app.jar
+StandardOutput=append:/var/log/csye6225/application.log
+StandardError=append:/var/log/csye6225/application.log
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
